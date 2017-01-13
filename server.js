@@ -123,7 +123,7 @@ var SampleApp = function() {
             self.app.get(r, self.routes[r]);
         }
 
-        self.app.get('/Hello', function (req, res) {
+        self.app.get('/jsonExample', function (req, res) {
           var testJson = '{"user":{"id":"948f42f6-8632-4a7e-b6db-8cfacea76587","first_name":"Boba","last_name":"Skywalker","avatar":{"large_url_2x":null,"large_url":null,"medium_url_2x":null,"medium_url":null,"small_url_2x":null,"small_url":null},"created_at":"2016-01-18T21:21:09.273+01:00"}}';
           res.send(JSON.parse(testJson));
         })
