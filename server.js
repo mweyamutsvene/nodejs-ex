@@ -22,8 +22,8 @@ var SampleApp = function() {
      */
     self.setupVariables = function() {
         //  Set the environment variables we need.
-        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP;
-        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8080;
+        self.ipaddress = process.env.OPENSHIFT_NODEJS_IP || "127.0.0.1";
+        self.port      = process.env.OPENSHIFT_NODEJS_PORT || 8888;
 
         if (typeof self.ipaddress === "undefined") {
             //  Log errors on OpenShift but continue w/ 127.0.0.1 - this
@@ -104,8 +104,8 @@ var SampleApp = function() {
             res.setHeader('Content-Type', 'text/html');
             res.send(self.cache_get('index.html') );
             res.send(self.cache_get('index2.html') );
-
         };
+
     };
 
 
@@ -122,6 +122,10 @@ var SampleApp = function() {
         for (var r in self.routes) {
             self.app.get(r, self.routes[r]);
         }
+        
+        self.app.get('/Hello', function (req, res) {
+          res.send('Hello World!')
+        })
     };
 
 
@@ -149,6 +153,7 @@ var SampleApp = function() {
         });
     };
 
+
 };   /*  Sample Application.  */
 
 
@@ -159,4 +164,3 @@ var SampleApp = function() {
 var zapp = new SampleApp();
 zapp.initialize();
 zapp.start();
-
