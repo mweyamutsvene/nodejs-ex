@@ -4,16 +4,17 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<meta property="og:url"                content="http://www.ifoundry.io" />
-<meta property="og:title"              content="Innovation Foundry" />
-<meta property="og:description"        content="Innovation Foundry is a non-profit designed to give young people interested in a career in mobile development a leg up in the industry." />
-<meta property="og:image"              content="http://www.ifoundry.io/images/LargeLogo.png" />
 
 <html>
 	<head>
 		<div itemscope itemtype="http://schema.org/Organization">
 		<title>Innovation Foundry</title>
-		<link itemprop="logo" rel="icon" href="images/logoColored.png" alt="logo">
+		<meta property="og:url"                content="http://www.ifoundry.io" />
+		<meta property="og:title"              content="Innovation Foundry" />
+		<meta property="og:description"        content="Innovation Foundry is a non-profit designed to give young people interested in a career in mobile development a leg up in the industry." />
+		<meta property="og:image"              content="http://www.ifoundry.io/images/LargeLogo.png" />
+
+		<link rel="icon" href="images/logoColored.png" alt="logo">
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
@@ -23,6 +24,20 @@
 		</div>
 	</head>
 	<body>
+
+		<!-- Load Facebook SDK for JavaScript -->
+		<div id="fb-root"></div>
+		<script>(function(d, s, id) {
+			var js, fjs = d.getElementsByTagName(s)[0];
+			if (d.getElementById(id)) return;
+			js = d.createElement(s); js.id = id;
+			js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1";
+			fjs.parentNode.insertBefore(js, fjs);
+		}(document, 'script', 'facebook-jssdk'));</script>
+
+
+
+
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -53,6 +68,13 @@
 							<div class="logo"><img src="images/logo.png" height="42" width="42"></div>
 							<h2>Innovation Foundry</h2>
 							<!-- <p>Another free + fully responsive site template by <a href="http://html5up.net">HTML5 UP</a></p> -->
+						</div>
+						<!-- Your like button code -->
+						<div class="fb-like"
+							data-href="http://www.your-domain.com/your-page.html"
+							data-layout="standard"
+							data-action="like"
+							data-show-faces="true">
 						</div>
 					</section>
 
@@ -179,10 +201,12 @@
 
                                  -->
 							</ul>
+
 							<ul class="copyright">
 								<li>&copy; Innovation Foundry Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
 							</ul>
 						</div>
+
 					</section>
 
 			</div>
