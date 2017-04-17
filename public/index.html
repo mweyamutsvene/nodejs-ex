@@ -7,12 +7,14 @@
 
 <html>
 	<head>
-		<div itemscope itemtype="http://schema.org/Organization">
-		<title>Innovation Foundry</title>
 		<meta property="og:url"                content="http://www.ifoundry.io" />
 		<meta property="og:title"              content="Innovation Foundry" />
 		<meta property="og:description"        content="Innovation Foundry is a non-profit designed to give young people interested in a career in mobile development a leg up in the industry." />
 		<meta property="og:image"              content="http://www.ifoundry.io/images/LargeLogo.png" />
+		<meta property="fb:app_id"              content="1925264247709444" />
+
+		<div itemscope itemtype="http://schema.org/Organization">
+		<title>Innovation Foundry</title>
 
 		<link rel="icon" href="images/logoColored.png" alt="logo">
 		<meta charset="utf-8" />
@@ -24,19 +26,6 @@
 		</div>
 	</head>
 	<body>
-
-		<!-- Load Facebook SDK for JavaScript -->
-		<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.8&appId=544225482255488";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
-
 
 		<!-- Page Wrapper -->
 			<div id="page-wrapper">
@@ -201,9 +190,14 @@
 							</ul>
 							<ul class="copyright">
 								<li>&copy; Innovation Foundry Inc. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>
-								<div class="fb-like" data-href="https://www.ifoundry.io" data-layout="standard" data-action="like" data-size="small" data-show-faces="true" data-share="true"></div>
 
 							</ul>
+							<div
+							  class="fb-like"
+							  data-share="true"
+							  data-width="450"
+							  data-show-faces="true">
+							</div>
 						</div>
 					</section>
 
@@ -216,6 +210,23 @@
 			<script src="assets/js/util.js"></script>
 			<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 			<script src="assets/js/main.js"></script>
+			<script>
+			  window.fbAsyncInit = function() {
+			    FB.init({
+			      appId      : '1925264247709444',
+			      xfbml      : true,
+			      version    : 'v2.8'
+			    });
+			    FB.AppEvents.logPageView();
+			  };
 
+			  (function(d, s, id){
+			     var js, fjs = d.getElementsByTagName(s)[0];
+			     if (d.getElementById(id)) {return;}
+			     js = d.createElement(s); js.id = id;
+			     js.src = "//connect.facebook.net/en_US/sdk.js";
+			     fjs.parentNode.insertBefore(js, fjs);
+			   }(document, 'script', 'facebook-jssdk'));
+			</script>
 	</body>
 </html>
