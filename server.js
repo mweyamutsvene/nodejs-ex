@@ -2,7 +2,6 @@
 //  OpenShift sample Node application
 var express = require('express');
 var fs      = require('fs');
-var path    = require('path');
 
 
 /**
@@ -40,11 +39,11 @@ var SampleApp = function() {
      */
     self.populateCache = function() {
         if (typeof self.zcache === "undefined") {
-            self.zcache = {};
+            self.zcache = { 'index2.html': 'docs/jsonExample.txt' };
         }
 
         //  Local cache for static content.
-        self.zcache['index.html'] = fs.readFileSync(path.join(__dirname, 'public', 'index.html'));
+        self.zcache['index.html'] = fs.readFileSync('./public/index.html'); // < ---- THIS WAS EDITED TO INCLUDE /public
     };
 
 
@@ -103,12 +102,13 @@ var SampleApp = function() {
 
         self.routes['/'] = function(req, res) {
             res.setHeader('Content-Type', 'text/html');
-            res.send(self.cache_get('index.html'));
+            res.send(self.cache_get('index.html') );
+            res.send(self.cache_get('index2.html') );
         };
 
         self.routes['/docs/jsonExample'] = function(req, res) {
-            res.setHeader('Content-Type', 'application/json');
-            res.send('{}');
+            res.setHeader('Content-Type', 'text/json');
+            res.send(self.cache_get('Docs/jsonExample.txt') );
         };
 
     };
@@ -120,8 +120,8 @@ var SampleApp = function() {
      */
     self.initializeServer = function() {
         self.createRoutes();
-        self.app = express();
-        self.app.use(express.static(path.join(__dirname, 'public')));
+        self.app = express.createServer();
+        self.app.use(express.static(__dirname + '/public')); // < ---- THIS WAS ADDED
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
@@ -129,7 +129,8 @@ var SampleApp = function() {
         }
 
         self.app.get('/jsonExample', function (req, res) {
-          res.json({});
+          var testJson = '';
+          res.send(JSON.parse(testJson));
         })
         self.app.post('/postExample', function (req, res) {
               res.send('Got a POST request')
