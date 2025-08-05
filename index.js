@@ -14,13 +14,10 @@ app.use((req, res, next) => {
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
 
-app.get('/', function(request, response) {
-  logger.info('render index');
-  response.render('pages/index');
-});
-
 // serve static assets
 app.use(express.static(__dirname + '/public'));
+
+// No explicit route for '/' so that express.static can serve index.html
 
 app.listen(app.get('port'), function() {
   logger.info('Node app is running', { port: app.get('port') });
